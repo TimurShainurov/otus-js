@@ -1,33 +1,10 @@
 //1
 let input = prompt('DD.MM.YYYY');
 let [day, month, year] = input.split('.')
-let date = new Date(`${year}-${month}-${day}`)
-let dateDay = date.getDay()
-switch (dateDay) {
-    case 0:
-        console.log('Sunday')
-        break;
-    case 1:
-        console.log('Monday')
-        break;
-    case 2:
-        console.log('Tuesday')
-        break;
-    case 3:
-        console.log('Wednesday')
-        break;
-    case 4:
-        console.log('Thursday')
-        break;
-    case 5:
-        console.log('Friday')
-        break;
-    case 6:
-        console.log('Saturday')
-        break;
-
-}
-
+let date = new Date(year, month - 1, day);
+const formatter = new Intl.DateTimeFormat('ru-RU', {weekday:"short", year:'numeric'})
+const weekday = formatter.format(date)
+console.log(weekday)
 
 //2
 let now = new Date()
