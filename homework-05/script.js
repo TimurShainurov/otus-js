@@ -1,28 +1,31 @@
-const nums = [-1, 2, 3, 4, 545, 6, 7, 8, 9, 10000];
+export const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 //1
-let sum = 0;
-nums.forEach(elem => sum += elem)
-console.log('Сумма элементов массива:', sum)
+export function sumOfArray(nums) {
+    let sum = 0;
+    nums.forEach(elem => sum += elem)
+    return sum
+}
 
 //2
-const doubleNums = nums.map(elem => elem * 2);
-console.log(doubleNums)
+export function doubleNums(nums) {
+    return nums.map(elem => elem * 2)
+}
 
 //3
-let max = nums[0];
-let min = nums[0];
-for(let i = 1; i < nums.length; i++){
+export function minAndMaxElem(nums) {
+    let max = nums[0];
+    let min = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] > max) {
+            max = nums[i]
+        }
+        if (nums[i] < min) {
+            min = nums[i]
+        }
 
-    if(nums[i] > max){
-        max = nums[i]
     }
-     
-    if(nums[i] < min){
-        min = nums[i]
-    }
-
+    
+    return [min,max]
 }
-console.log(max)
-console.log(min)
 

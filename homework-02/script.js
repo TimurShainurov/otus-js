@@ -1,32 +1,45 @@
 //1
-const a = 10;
-const b = 100
-
-a > b ? console.log(a) : console.log(b);
+export function greaterNum(a, b) {
+    a > b ? console.log(a) : console.log(b);
+  }
 
 //2
-const num = +prompt('Enter a number between 1 and 12:')
-const months = {
-    1: 'January',
-    2: 'February',
-    3: 'March',
-    4: 'April',
-    5: 'May',
-    6: 'June',
-    7: 'July',
-    8: 'August ',
-    9: 'September',
-    10: 'October ',
-    11: 'November ',
-    12: 'December'
+export function printMonths(number) {
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  if (number < 1 || number > 12) {
+    throw new Error('Invalid number')
+  }
+  return (months[number - 1]);
 }
-console.log(months[num]);
+
+export function runPrintMonths() {
+  let input = +prompt("Enter a number between 1 and 12");
+  const result = printMonths(input)
+  console.log(result)
+}
 
 //3
-const circle = 78.5;
-const square = 25;
+export function doesCircleFitToSquare(circle, square) {
+  if (circle > 0 && square > 0) {
+    const diameter = 2 * Math.sqrt(circle / Math.PI);
+    const side = Math.sqrt(square);
 
-const diameter = 2 * Math.sqrt(circle / Math.PI);
-const side = Math.sqrt(square)
-
-console.log(diameter <= side ? 'Yes' : 'No')
+    return diameter <= side;
+  } else {
+    throw new Error("invalid arguments");
+  }
+}

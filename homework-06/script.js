@@ -1,5 +1,5 @@
 //1
-function diff(a, b) {
+export function diff(a, b) {
     if (a > b) {
         return a - b;
     } else {

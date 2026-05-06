@@ -1,15 +1,18 @@
-//1
-
-let user = {
+export const user = {
     name: 'John'
 }
-let number = +prompt('Введите возраст:');
-user.age = number;
+export function createAge(number) {
+    user.age = number;
+    return user
+}
 
+export function createAdmin(userWithAge) {
+    const copy = Object.assign({ role: 'admin' }, userWithAge)
+    return copy
+}
 
-//2
-let admin = Object.assign({ role: 'admin' }, user)
-
-//3
-let {name, age, role} = admin;
+export function getAdminProps(admin) {
+    let { name, age, role } = admin
+    return [name, age, role]
+}
 

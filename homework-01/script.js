@@ -1,19 +1,33 @@
 //1
-const a = 5;
-const b = 4;
-console.log('Произведение:', a * b);
-console.log('Cумма:', a + b);
+export function sum(a, b) {
+    console.log(a + b);
+}
+
+export function multipl(a, b) {
+    console.log(a * b);
+}
 
 //2
-const str1 = 'Hello World!';
-const str2 = 'Ivan';
-console.log('Сумма символов в строках:', str1.length + str2.length);
+export function sumOfChars(str1, str2) {
+    console.log(str1.length + str2.length);
+}
 
 //3
-const number = +prompt('Введите трехзначное число:')
-const digit1 = (number - number % 100) / 100;
-const digit3 = number % 10
-const digit2 = (number - digit1 * 100 - digit3) / 10
+export function sumOfDigits(number) {
+    const digit1 = (number - (number % 100)) / 100;
+    const digit3 = number % 10;
+    const digit2 = (number - digit1 * 100 - digit3) / 10;
+    return digit1 + digit2 + digit3;
+}
 
-console.log('Сумма цифр числа:', digit1 + digit2 + digit3)
+export function runSumOfDigits() {
+    const input = +prompt('Enter a 3-digit number');
 
+    if(input % 1 !== 0 || input < 100 || input > 999) {
+        console.log('Invalid number'); 
+        return
+    }
+
+    const result = sumOfDigits(input)
+    console.log(result)
+}
